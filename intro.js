@@ -55,7 +55,7 @@ class Level1 extends Phaser.Scene {
     create() {
         let background = this.add.image(960, 540, 'background1');
         background.setInteractive();
-        let odlaw = this.add.image(960, 540, 'odlaw');
+        let odlaw = this.add.image(1460, 415, 'odlaw');
         odlaw.setInteractive();
 
         function moveToNextScene() {
@@ -85,7 +85,7 @@ class Level2 extends Phaser.Scene {
     create() {
         let background = this.add.image(960, 540, 'background2');
         background.setInteractive();
-        let odlaw = this.add.image(960, 540, 'odlaw2');
+        let odlaw = this.add.image(1515, 415, 'odlaw2');
         odlaw.setInteractive();
 
         function moveToNextScene() {
@@ -117,7 +117,7 @@ class Level3 extends Phaser.Scene {
     create() {
         let background = this.add.image(960, 540, 'background3');
         background.setInteractive();
-        let odlaw = this.add.image(960, 540, 'odlaw3');
+        let odlaw = this.add.image(1470, 335, 'odlaw3');
         odlaw.setInteractive();
 
         function moveToNextScene() {
