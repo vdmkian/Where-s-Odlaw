@@ -3,14 +3,13 @@ class Start extends Phaser.Scene {
         super('Start');
     }
 
-    create() {
-        this.add.text(game.canvas.width / 2, game.canvas.height / 2, "Where's Odlaw?",
-            {
-                font: "40px Arial",
-                align: "center",
-                color: "#FFFFFF"
-            }).setOrigin(0.5, 0.5);
+    preload(){
+        this.load.image('title', './assets/title.png')
+    }
 
+    create() {
+        this.add.image(960,540,'title')
+        
         this.input.on('pointerdown', () => {
             this.cameras.main.fade(500, 0, 0, 0);
             this.time.delayedCall(500, () => this.scene.start('Level1'));
@@ -307,7 +306,7 @@ class Level9 extends Phaser.Scene {
         odlaw.setInteractive();
 
         function moveToNextScene() {
-            this.scene.start('Level10');
+            this.scene.start('Level13');
         }
 
         function moveToLostGame() {
@@ -381,5 +380,36 @@ class Level12 extends Phaser.Scene {
 
         background.on('pointerdown', moveToNextScene, this);
  
+    }
+}
+
+class Level13 extends Phaser.Scene {
+    constructor() {
+        super("Level13");
+    }
+
+    preload() {
+        this.load.image('odlaw9', './assets/odlaw9.png');
+        this.load.image('background10', './assets/background10.png');
+    }
+
+    create() {
+        let background = this.add.image(960, 540, 'background10');
+        background.setInteractive();
+        let odlaw = this.add.image(540, 420, 'odlaw9');
+        odlaw.setInteractive();
+
+        function moveToNextScene() {
+            this.scene.start('Level10');
+        }
+
+        function moveToLostGame() {
+            this.scene.start('lost');
+        }
+        
+        background.on('pointerdown', moveToLostGame, this);
+        
+        odlaw.on('pointerdown', moveToNextScene, this);
+        
     }
 }
