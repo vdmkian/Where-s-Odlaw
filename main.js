@@ -5,7 +5,7 @@ const game = new Phaser.Game({
         width: 1920,
         height: 1080
     },
-    scene: [Start, Lost, Level1, Level2, Level3, Level4, Level5, Level6, Level7, Level8, Level9, Level10, ],
+    scene: [Start, Lost, Level1, Level2, Level3, Level4, Level5, Level6, Level7, Level8, Level9, Level10, Level11, Level12],
     powerPerformance: "high-performance",
     title: "Where's Odlaw?",
 });

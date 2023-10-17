@@ -148,7 +148,7 @@ class Level4 extends Phaser.Scene {
     create() {
         let background = this.add.image(960, 540, 'background4');
         background.setInteractive();
-        let odlaw = this.add.image(960, 540, 'odlaw4');
+        let odlaw = this.add.image(620, 720, 'odlaw4');
         odlaw.setInteractive();
 
         function moveToNextScene() {
@@ -179,7 +179,7 @@ class Level5 extends Phaser.Scene {
     create() {
         let background = this.add.image(960, 540, 'background5');
         background.setInteractive();
-        let odlaw = this.add.image(960, 540, 'odlaw5');
+        let odlaw = this.add.image(620, 720, 'odlaw5');
         odlaw.setInteractive();
 
         function moveToNextScene() {
@@ -210,7 +210,7 @@ class Level6 extends Phaser.Scene {
     create() {
         let background = this.add.image(960, 540, 'background6');
         background.setInteractive();
-        let odlaw = this.add.image(960, 540, 'odlaw6');
+        let odlaw = this.add.image(960, 630, 'odlaw6');
         odlaw.setInteractive();
 
         function moveToNextScene() {
@@ -303,7 +303,7 @@ class Level9 extends Phaser.Scene {
     create() {
         let background = this.add.image(960, 540, 'background9');
         background.setInteractive();
-        let odlaw = this.add.image(960, 540, 'odlaw9');
+        let odlaw = this.add.image(540, 420, 'odlaw9');
         odlaw.setInteractive();
 
         function moveToNextScene() {
@@ -327,58 +327,59 @@ class Level10 extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('odlaw10', './assets/odlaw10.png');
-        this.load.image('background10', './assets/background10.png');
+        this.load.image('finish1', './assets/finish1.png');
     }
 
     create() {
-        let background = this.add.image(960, 540, 'background10');
+        let background = this.add.image(960, 540, 'finish1');
         background.setInteractive();
-        let odlaw = this.add.image(960, 540, 'odlaw10');
-        odlaw.setInteractive();
-
         function moveToNextScene() {
-            this.scene.start('EndScene');
+            this.scene.start('Level11');
         }
 
-        function moveToLostGame() {
-            this.scene.start('lost');
-        }
-        
-        background.on('pointerdown', moveToLostGame, this);
-        
-        odlaw.on('pointerdown', moveToNextScene, this);
-        
+        background.on('pointerdown', moveToNextScene, this);
+ 
     }
 }
 
-class EndScene extends Phaser.Scene {
+class Level11 extends Phaser.Scene {
     constructor() {
-        super("EndScene");
+        super("Level11")
     }
 
     preload() {
-        this.load.image('odlaw11', './assets/odlaw11.png');
-        this.load.image('background11', './assets/background11.png');
+        this.load.image('finish2', './assets/finish2.png');
     }
 
     create() {
-        let background = this.add.image(960, 540, 'background11');
+        let background = this.add.image(960, 540, 'finish2');
         background.setInteractive();
-        let odlaw = this.add.image(960, 540, 'odlaw11');
-        odlaw.setInteractive();
-
         function moveToNextScene() {
-            this.scene.start('Finale');
+            this.scene.start('Level12');
         }
 
-        function moveToLostGame() {
-            this.scene.start('lost');
+        background.on('pointerdown', moveToNextScene, this);
+ 
+    }
+}
+
+class Level12 extends Phaser.Scene {
+    constructor() {
+        super("Level12")
+    }
+
+    preload() {
+        this.load.image('finish3', './assets/finish3.png');
+    }
+
+    create() {
+        let background = this.add.image(960, 540, 'finish3');
+        background.setInteractive();
+        function moveToNextScene() {
+            this.scene.start('Start');
         }
-        
-        background.on('pointerdown', moveToLostGame, this);
-        
-        odlaw.on('pointerdown', moveToNextScene, this);
-        
+
+        background.on('pointerdown', moveToNextScene, this);
+ 
     }
 }
